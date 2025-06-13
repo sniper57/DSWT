@@ -1,0 +1,28 @@
+<html>
+<body>
+<h1>Hi! You are on queue.</h1><br>
+<p>Apologies, We are experiencing huge traffic of visitor.<br>
+Please try to access the website later.<br><br>
+Or wait for <span id="countdownTimerNumber">60</span> second(s) to reload this website.
+</p>
+
+</body>
+
+<script>
+function timedRefresh(timeoutPeriod) {
+   var timer = setInterval(function() {
+   if (timeoutPeriod > 0) {
+       timeoutPeriod -= 1;
+       <!-- document.body.innerHTML = timeoutPeriod + ".." + "<br />"; -->
+       // or
+       document.getElementById("countdownTimerNumber").innerHTML = timeoutPeriod;
+   } else {
+       clearInterval(timer);
+            window.location.href = 'index.php';
+       };
+   }, 1000);
+};
+timedRefresh(60);
+</script>
+
+</html>
